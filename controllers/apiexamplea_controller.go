@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"log"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -48,10 +49,17 @@ type ApiExampleAReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.7.2/pkg/reconcile
 func (r *ApiExampleAReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = r.Log.WithValues("apiexamplea", req.NamespacedName)
 
 	// your logic here
+	ctx = context.Background()
+	_ = r.Log.WithValues("apiexamplea", req.NamespacedName)
 
+	obja := &groupav1beta1.ApiExampleA{}
+	if err := r.Get(ctx, req.NamespacedName, obja); err != nil {
+		log.Println(err, "nuable to fetch New Object")
+	} else {
+		log.Println("fetch New Object:", obja.Spec.AppName, obja.Spec.AppFunc)
+	}
 	return ctrl.Result{}, nil
 }
 
