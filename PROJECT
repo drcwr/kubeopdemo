@@ -1,0 +1,16 @@
+domain: k8s.demo.com
+layout:
+- go.kubebuilder.io/v3
+projectName: kubeopdemo
+repo: github.com/drcwr/kubeopdemo
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: k8s.demo.com
+  group: groupa
+  kind: ApiExampleA
+  path: github.com/drcwr/kubeopdemo/api/v1beta1
+  version: v1beta1
+version: "3"
