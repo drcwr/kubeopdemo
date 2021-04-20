@@ -29,7 +29,9 @@ type ApiExampleASpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of ApiExampleA. Edit apiexamplea_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Foo     string `json:"foo,omitempty"`
+	AppName string `json:"appName"`
+	AppFunc string `json:"appFunc"`
 }
 
 // ApiExampleAStatus defines the observed state of ApiExampleA
