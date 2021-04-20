@@ -5,3 +5,5 @@ metadata:
 spec:
   # Add fields here
   foo: bar
+  appName: demo
+  appFunc: run
