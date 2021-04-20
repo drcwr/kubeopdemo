@@ -36,10 +36,17 @@ spec:
           spec:
             description: ApiExampleASpec defines the desired state of ApiExampleA
             properties:
+              appFunc:
+                type: string
+              appName:
+                type: string
               foo:
                 description: Foo is an example field of ApiExampleA. Edit apiexamplea_types.go
                   to remove/update
                 type: string
+            required:
+            - appFunc
+            - appName
             type: object
           status:
             description: ApiExampleAStatus defines the observed state of ApiExampleA
